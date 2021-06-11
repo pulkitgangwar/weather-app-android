@@ -49,9 +49,7 @@ public class MainActivity extends AppCompatActivity {
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Log.d("oncreate","inside the onclick");
                 getWeatherInformation();
-
             }
         });
     }
@@ -61,7 +59,6 @@ public class MainActivity extends AppCompatActivity {
         String apiKey = "d5276286f613266541840ff100599082";
         String city = cityInput.getText().toString();
         String url = "https://api.openweathermap.org/data/2.5/weather?q="+ city +"&appid="+ apiKey;
-        Log.d("oncreate",url);
 
         RequestQueue queue = Volley.newRequestQueue(getApplicationContext());
         JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
@@ -91,13 +88,13 @@ public class MainActivity extends AppCompatActivity {
 
 
                 } catch(JSONException err) {
-                    Toast.makeText(getApplicationContext(),err.getMessage().toString(),Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(),"Something went wrong",Toast.LENGTH_SHORT).show();
                 }
             }
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError err) {
-                Toast.makeText(getApplicationContext(),err.getMessage().toString(),Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(),"Something went wrong",Toast.LENGTH_SHORT).show();
             }
         });
         queue.add(request);
