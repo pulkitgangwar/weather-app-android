@@ -5,14 +5,31 @@
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".MainActivity">
-    <TextView
+        tools:context=".MainActivity"
+        android:orientation="vertical" android:id="@+id/container">
+    <Button
+            android:text="Button"
             android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:id="@+id/container__button"
+            android:layout_marginTop="16dp" app:layout_constraintTop_toBottomOf="@+id/container__input"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+    />
+    <EditText
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Hello World!"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent"/>
-
+            android:inputType="textPersonName"
+            android:ems="10"
+            android:id="@+id/container__input"
+            app:layout_constraintTop_toTopOf="parent" app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" android:layout_marginTop="32dp" android:hint="Enter City"
+            android:layout_marginRight="32dp" android:layout_marginEnd="32dp" android:layout_marginLeft="32dp"
+            android:layout_marginStart="32dp"/>
+    <TextView
+            android:text="Weather Info"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:id="@+id/container__output"
+            android:textSize="50dp" android:fontFamily="serif"
+            app:layout_constraintTop_toBottomOf="@+id/container__button" app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" app:layout_constraintBottom_toBottomOf="parent"/>
 </androidx.constraintlayout.widget.ConstraintLayout>
